@@ -1,0 +1,28 @@
+#!/bin/sh
+
+set -e
+
+if ! dscl . -list /Users/unitycache; then
+    uid=$(dscl . -list /Users uid | sort -nrk 2 | awk '$2 < 500 {print $2 + 1; exit 0}')
+
+    gid=$uid
+    while dscl -search /Groups gid $gid | grep -q $gid; do
+        gid=$(($gid + 1))
+    done
+
+    dscl . -create /Groups/unitycache PrimaryGroupID $gid
+
+    dscl . -create /Users/unitycache FullName "Unity Cache Server"
+    dscl . -create /Users/unitycache UserShell /bin/bash
+    dscl . -create /Users/unitycache Password '*'
+    dscl . -create /Users/unitycache UniqueID $uid
+    dscl . -create /Users/unitycache PrimaryGroupID $gid
+    dscl . -create /Users/unitycache NFSHomeDirectory /Library/UnityCacheServer
+
+    dscl . -append /Groups/unitycache GroupMembership unitycache
+fi
+
+mkdir -p /var/log/unitycache
+chown unitycache:unitycache /var/log/unitycache
+
+launchctl load /Library/LaunchDaemons/com.unity3d.cacheserver.plist

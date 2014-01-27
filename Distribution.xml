@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<installer-gui-script minSpecVersion="1">
+    <title>Unity Cache Server</title>
+    <pkg-ref id="com.unity3d.cacheserver"/>
+    <options customize="never" require-scripts="false"/>
+    <choices-outline>
+        <line choice="default">
+            <line choice="com.unity3d.cacheserver"/>
+        </line>
+    </choices-outline>
+    <choice id="default"/>
+    <choice id="com.unity3d.cacheserver" visible="false">
+        <pkg-ref id="com.unity3d.cacheserver"/>
+    </choice>
+    <pkg-ref id="com.unity3d.cacheserver" version="0" onConclusion="none">CacheServer.pkg</pkg-ref>
+</installer-gui-script>

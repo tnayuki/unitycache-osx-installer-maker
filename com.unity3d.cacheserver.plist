@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.unity3d.cacheserver</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Library/UnityCacheServer/RunOSX.command</string>
+        <string>--path</string>
+        <string>/Library/Caches/com.unity3d.cacheserver</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true />
+
+    <key>KeepAlive</key>
+    <true />
+
+    <key>UserName</key>
+    <string>unitycache</string>
+
+    <key>GroupName</key>
+    <string>daemon</string>
+
+    <key>StandardErrorPath</key>
+    <string>/var/log/unitycache/unitycache.log</string>
+
+    <key>StandardOutPath</key>
+    <string>/var/log/unitycache/unitycache.log</string>
+  </dict>
+</plist>
