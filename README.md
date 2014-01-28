@@ -11,3 +11,7 @@ will download Unity Cache Server and make installer package in build directory.
 
 Programs: /Library/UnityCacheServer  
 Caches: /Library/Caches/com.unity3d.cacheserver
+
+## Uninstall
+
+sudo /Library/UnityCacheServer/Uninstall.sh

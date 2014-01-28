@@ -24,6 +24,7 @@ unzip build/CacheServer.zip -d build
 
 mkdir -p build/root/Library/LaunchDaemons
 mv build/CacheServer build/root/Library/UnityCacheServer
+cp -p Uninstall.sh build/root/Library/UnityCacheServer
 cp -p com.unity3d.cacheserver.plist build/root/Library/LaunchDaemons
 
 pkgbuild --identifier com.unity3d.cacheserver --version $VERSION --root build/root build/CacheServer.pkg --install-location / --scripts scripts
