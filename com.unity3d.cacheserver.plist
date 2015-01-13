@@ -8,6 +8,8 @@
     <array>
         <string>/Library/UnityCacheServer/RunOSX.command</string>
         <string>--path</string>
+        <string>/Library/Caches/com.unity3d.cacheserver5</string>
+        <string>--legacypath</string>
         <string>/Library/Caches/com.unity3d.cacheserver</string>
     </array>
 
